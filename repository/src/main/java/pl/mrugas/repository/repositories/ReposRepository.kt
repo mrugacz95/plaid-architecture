@@ -21,17 +21,4 @@ class ReposRepository(private val remoteDataSource: ReposRemoteDataSource) {
         }
         return result
     }
-
-    companion object {
-        @Volatile
-        private var INSTANCE: ReposRepository? = null
-
-        fun getInstance(remoteDataSource: ReposRemoteDataSource): ReposRepository {
-            return INSTANCE ?: synchronized(this) {
-                INSTANCE ?: ReposRepository(remoteDataSource).also {
-                    INSTANCE = it
-                }
-            }
-        }
-    }
 }
