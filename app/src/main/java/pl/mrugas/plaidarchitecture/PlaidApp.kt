@@ -7,7 +7,7 @@ class PlaidApp : Application() {
     override fun onCreate() {
         super.onCreate()
         startKoin {
-            appModule
+            modules(appModules)
         }
     }
 }

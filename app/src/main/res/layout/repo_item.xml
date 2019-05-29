@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+                name="repo"
+                type="pl.mrugas.repository.Repo"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:paddingBottom="8dp">
+
+        <TextView
+                android:fontFamily="monospace"
+                android:id="@+id/tv_name"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_width="wrap_content"
+                android:text="@{repo.name}"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="plaid-architecture"/>
+
+        <TextView
+                android:id="@+id/tv_description"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_width="wrap_content"
+                android:text="@{repo.description}"
+                android:visibility="@{repo.description == null ? View.GONE : View.VISIBLE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_name"
+                tools:text="Sample app with plaid architecture"/>
+
+        <TextView
+                android:id="@+id/language"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_width="wrap_content"
+                android:text="@{repo.language}"
+                android:visibility="@{repo.language == null ? View.GONE : View.VISIBLE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_description"
+                tools:text="Kotlin"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
